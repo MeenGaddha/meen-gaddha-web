@@ -1,0 +1,22 @@
+{
+  "mostPlayedCategories": [
+    { "title": "عالم الحيوان", "img": "/src/assets/images/animals.svg" },
+    { "title": "المسلسلات", "img": "/src/assets/images/series.svg" },
+    { "title": "أغاني عربية", "img": "/src/assets/images/music.svg" },
+    { "title": "رياضة", "img": "/src/assets/images/sports.svg" },
+    { "title": "مسرحيات", "img": "/src/assets/images/theaters.svg" },
+    { "title": "أعلام", "img": "/src/assets/images/flags.svg" },
+    { "title": "تاريخ", "img": "/src/assets/images/history.svg" },
+    { "title": "أفلام", "img": "/src/assets/images/movies.svg" }
+  ],
+  "exclusiveCategories": [
+    { "title": "قصص الأنبياء", "img": "/src/assets/images/prophets.svg" },
+    { "title": "المنتجات", "img": "/src/assets/images/products.svg" },
+    { "title": "الأطعمة", "img": "/src/assets/images/food.svg" },
+    { "title": "سيارات", "img": "/src/assets/images/cars.svg" },
+    { "title": "معلومات عامة", "img": "/src/assets/images/GeneralInformation.svg" },
+    { "title": "إسلاميات", "img": "/src/assets/images/islamic.svg" },
+    { "title": "أنمي", "img": "/src/assets/images/anime.svg" },
+    { "title": "إختراعات", "img": "/src/assets/images/inventions.svg" }
+  ]
+}
