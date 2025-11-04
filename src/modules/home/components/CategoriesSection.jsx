@@ -20,7 +20,6 @@ export default function CategoriesSection() {
       </div>
     </div>
   );
-
   return (
     <section className="bg-white py-24 px-6 md:px-20">
 
