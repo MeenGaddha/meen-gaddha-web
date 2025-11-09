@@ -26,8 +26,9 @@ export default function ContactForm() {
             </label>
             <input
               type="text"
+
               placeholder="أدخل اسمك"
-              className="w-full border-b border-gray-300 focus:border-[#8E221F] focus:outline-none py-2"
+              className="w-full border-b border-gray-300 focus:border-[#8E221F] focus:outline-none py-2 opacity-30"
             />
           </div>
 
@@ -38,7 +39,7 @@ export default function ContactForm() {
             <input
               type="email"
               placeholder="example@email.com"
-              className="w-full border-b border-gray-300 focus:border-[#8E221F] focus:outline-none py-2"
+              className="w-full border-b border-gray-300 focus:border-[#8E221F] focus:outline-none py-2 opacity-30"
             />
           </div>
 
@@ -49,7 +50,7 @@ export default function ContactForm() {
             <textarea
               rows="4"
               placeholder="اكتب رسالتك هنا..."
-              className="w-full border-b border-gray-300 focus:border-[#8E221F] focus:outline-none py-2 resize-none"
+              className="w-full border-b border-gray-300 focus:border-[#8E221F] focus:outline-none py-2 resize-none opacity-30"
             ></textarea>
           </div>
         </form>
