@@ -1,11 +1,48 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
-import categories from "../../../data/homeCategories.json";
+import "swiper/css/autoplay";
+
+import {
+  getMostPlayedCategories,
+  getExclusiveCategories,
+} from "../services/categoryService";
+
+
 
 export default function CategoriesSection() {
-  const { mostPlayedCategories, exclusiveCategories } = categories;
+  const [mostPlayed, setMostPlayed] = useState([]);
+  const [exclusive, setExclusive] = useState([]);
+  const [errorMsg, setErrorMsg] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+
+  console.log("Render CategoriesSection");
+  console.log(mostPlayed, exclusive);
+  console.log("mostPlayed:", mostPlayed.length);
+  console.log("exclusive:", exclusive.length);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      setIsLoading(true);
+
+      try {
+        const [mostPlayedData, exclusiveData] = await Promise.all([
+          getMostPlayedCategories(),
+          getExclusiveCategories(),
+        ]);
+        setMostPlayed(mostPlayedData);
+        setExclusive(exclusiveData);
+      } catch (error) {
+        console.error(error);
+        setErrorMsg("حدث خطأ أثناء تحميل الفئات "); // ✅ استخدمي علامات اقتباس إنجليزية
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   const CategoryCard = ({ img, title }) => (
     <div className="bg-white border-2 border-[#8E221F] rounded-lg shadow-sm overflow-hidden flex flex-col items-center justify-between transition-transform duration-300 hover:scale-105">
@@ -22,7 +59,11 @@ export default function CategoriesSection() {
   );
   return (
     <section className="bg-white py-24 px-6 md:px-20">
+      {isLoading && (
+        <p className="text-center text-gray-600">جارٍ تحميل الفئات...</p>
+      )}
 
+      {errorMsg && <p className="text-center text-red-600">{errorMsg}</p>}
       {/* most played section: */}
       <div className="text-center mb-12" data-aos="fade-up">
         <h2 className="text-3xl md:text-4xl font-bold text-black mb-3">
@@ -35,11 +76,15 @@ export default function CategoriesSection() {
 
       {/* most played slider */}
       <Swiper
+      key={mostPlayed.length}
         modules={[Autoplay]}
         spaceBetween={20}
         slidesPerView={4}
         loop={true}
-        autoplay={{ delay: 3000, disableOnInteraction: false }}
+        autoplay={{
+          delay: 4000,
+          disableOnInteraction: false,
+        }}
         speed={1000}
         className="max-w-6xl mx-auto"
         breakpoints={{
@@ -48,9 +93,9 @@ export default function CategoriesSection() {
           1024: { slidesPerView: 4 },
         }}
       >
-        {mostPlayedCategories.map((cat, index) => (
+        {mostPlayed.map((cat, index) => (
           <SwiperSlide key={index}>
-            <CategoryCard img={cat.img} title={cat.title} />
+            <CategoryCard img={cat.photo} title={cat.category_name} />
           </SwiperSlide>
         ))}
       </Swiper>
@@ -67,11 +112,12 @@ export default function CategoriesSection() {
 
       {/* exclusive slider */}
       <Swiper
+      key={exclusive.length}
         modules={[Autoplay]}
         spaceBetween={20}
         slidesPerView={4}
         loop={true}
-        autoplay={{ delay: 3000, disableOnInteraction: false }}
+        autoplay={{ delay: 4000, disableOnInteraction: false }}
         speed={1000}
         className="max-w-6xl mx-auto"
         breakpoints={{
@@ -80,9 +126,9 @@ export default function CategoriesSection() {
           1024: { slidesPerView: 4 },
         }}
       >
-        {exclusiveCategories.map((cat, index) => (
+        {exclusive.map((cat, index) => (
           <SwiperSlide key={index}>
-            <CategoryCard img={cat.img} title={cat.title} />
+            <CategoryCard img={cat.photo} title={cat.category_name} />
           </SwiperSlide>
         ))}
       </Swiper>
