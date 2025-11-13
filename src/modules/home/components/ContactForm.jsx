@@ -63,7 +63,7 @@ export default function ContactForm() {
             className="w-28 md:w-32 mb-6 md:mb-0"
           />
 
-          <button className="bg-[#8E221F] hover:bg-[#a42b28] text-white font-semibold py-3 px-10 rounded-lg transition-all duration-300">
+          <button className="bg-[#8E221F] hover:bg-[#a42b28] text-white font-semibold py-3 px-10 cursor-auto rounded-lg transition-all duration-300">
             أرسل
           </button>
         </div>

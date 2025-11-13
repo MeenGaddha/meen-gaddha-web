@@ -6,7 +6,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="bg-white shadow-sm fixed w-full top-0 right-0 z-50 border-b border-gray-100">
+    <nav className="bg-white shadow-sm sticky w-full top-0 right-0 z-50 border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
         <div className="flex items-center gap-3">
           <button className="bg-[#FECE5D] hover:bg-[#ffc439] text-black font-semibold px-6 py-2 rounded-xl transition">
@@ -33,7 +33,7 @@ export default function Navbar() {
         {/* Hamburger Icon (mobile only) */}
         <div>
           <button
-          className="md:hidden text-3xl text-gray-800"
+          className="md:hidden text-3xl text-gray-800 cursor-pointer"
           onClick={() => setIsOpen(!isOpen)}
         >
           ☰

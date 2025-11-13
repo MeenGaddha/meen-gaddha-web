@@ -1,9 +1,7 @@
 import axios from "axios";
 
-//for Categories:
-
 const meenGaddhaAPI = axios.create({
-  baseURL: "http://185.197.250.189/api/",
+  baseURL: import.meta.env.VITE_BASE_URL,
 });
 
 
