@@ -7,7 +7,7 @@ export default function CategorySelector({ options, selected, onSelect }) {
         <button
           key={option}
           onClick={() => onSelect(option)}
-          className={`relative cursor-auto w-24 h-28 rounded-2xl shadow-md flex items-center justify-center transition-all duration-200 
+          className={`relative cursor-pointer w-24 h-28 rounded-2xl shadow-md flex items-center justify-center transition-all duration-200 
             ${selected === option 
               ? "bg-[#8E221F] text-white shadow-lg scale-105" 
               : "bg-white text-[#8E221F] hover:shadow-lg hover:scale-105"

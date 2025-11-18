@@ -1,5 +1,5 @@
-import Navbar from "../modules/navbar/layouts/Navbar";
-import Footer from "../modules/footer/layouts/Footer";
+import Navbar from "./Navbar";
+import Footer from "./Footer";
 import { Outlet } from "react-router-dom";
 import LoadingScreen from "../layouts/LoadingScreen";
 import NoInternetScreen from "../layouts/NoInternetScreen";

@@ -9,8 +9,6 @@ import {
   getExclusiveCategories,
 } from "../services/categoryService";
 
-
-
 export default function CategoriesSection() {
   const [mostPlayed, setMostPlayed] = useState([]);
   const [exclusive, setExclusive] = useState([]);
@@ -76,11 +74,11 @@ export default function CategoriesSection() {
 
       {/* most played slider */}
       <Swiper
-      key={mostPlayed.length}
         modules={[Autoplay]}
         spaceBetween={20}
         slidesPerView={4}
         loop={true}
+        
         autoplay={{
           delay: 4000,
           disableOnInteraction: false,
@@ -93,9 +91,12 @@ export default function CategoriesSection() {
           1024: { slidesPerView: 4 },
         }}
       >
-        {mostPlayed.map((cat, index) => (
-          <SwiperSlide key={index}>
-            <CategoryCard img={cat.photo} title={cat.category_name} />
+        {mostPlayed.map((categories) => (
+          <SwiperSlide key={categories.id}>
+            <CategoryCard
+              img={categories.photo}
+              title={categories.category_name}
+            />
           </SwiperSlide>
         ))}
       </Swiper>
@@ -112,7 +113,6 @@ export default function CategoriesSection() {
 
       {/* exclusive slider */}
       <Swiper
-      key={exclusive.length}
         modules={[Autoplay]}
         spaceBetween={20}
         slidesPerView={4}
@@ -126,9 +126,12 @@ export default function CategoriesSection() {
           1024: { slidesPerView: 4 },
         }}
       >
-        {exclusive.map((cat, index) => (
-          <SwiperSlide key={index}>
-            <CategoryCard img={cat.photo} title={cat.category_name} />
+        {exclusive.map((categories) => (
+          <SwiperSlide key={categories.id}>
+            <CategoryCard
+              img={categories.photo}
+              title={categories.category_name}
+            />
           </SwiperSlide>
         ))}
       </Swiper>
