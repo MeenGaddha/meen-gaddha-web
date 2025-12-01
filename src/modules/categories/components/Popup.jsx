@@ -1,8 +1,25 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 
 export default function Popup({ onClose }) {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
+  const navigate = useNavigate();
+
+const handleStartGame = () => {
+  const user = localStorage.getItem("userName"); 
+
+  if (!user) {
+    // user NOT logged in → redirect
+    navigate("/login");
+    return;
+  }
+
+  // user is logged in → start game
+  navigate("/game"); //gonna change later
+};
+
 
   const handleSelect = (option) => {
     setSelectedOption(option);
@@ -23,7 +40,7 @@ export default function Popup({ onClose }) {
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-white bg-[#C32729] rounded-full cursor-auto hover:text-black text-2xl h-8 w-8"
+          className="absolute top-4 right-4 text-white bg-[#C32729] rounded-full cursor-pointer hover:text-black text-2xl h-8 w-8"
         >
           ✕
         </button>
@@ -109,7 +126,7 @@ export default function Popup({ onClose }) {
                   <button
                     key={item.value}
                     onClick={() => handleSelect(item.value)}
-                    className={`block w-full text-center px-4 py-3 cursor-auto font-semibold transition-all duration-200 ${
+                    className={`block w-full text-center px-4 py-3 cursor-pointer font-semibold transition-all duration-200 ${
                       selectedOption === item.value
                         ? "bg-[#C32729] text-white"
                         : "bg-white text-black hover:bg-[#C32729] hover:text-white"
@@ -126,7 +143,7 @@ export default function Popup({ onClose }) {
           <div className="text-center">
             <button
               type="button"
-              onClick={onClose}
+              onClick={handleStartGame} //cond before starting game
               className="bg-[#C32729] hover:bg-[#8E221F] text-white font-semibold px-8 py-3 cursor-pointer rounded-xl transition duration-300 mt-6"
             >
               ابدأ اللعب

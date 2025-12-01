@@ -1,1 +1,9 @@
 @import "tailwindcss";
+.swiper-wrapper {
+  flex-wrap: nowrap !important;
+} 
+/* to solve ام عويصة the categories in homepage cuz idk how to solve it anymore tbh took me 2 hours
+(was shown 2 times idk why)  */
+.scroll-section {
+  scroll-margin-top: 110px; /* Try 110–150 depending on navbar height */
+}

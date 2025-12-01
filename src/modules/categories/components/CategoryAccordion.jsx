@@ -15,7 +15,7 @@ export default function CategoryAccordion({ title, children }) {
       {/* Accordion header */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`w-full flex justify-between items-center px-5 py-4 cursor-auto text-right transition-colors ${
+        className={`w-full flex justify-between items-center px-5 py-4 cursor-pointer text-right transition-colors ${
           isOpen ? "bg-[#8E221F] text-white" : "bg-transparent text-[#8E221F]"
         }`}
       >

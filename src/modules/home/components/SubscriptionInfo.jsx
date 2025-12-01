@@ -41,7 +41,7 @@ export default function SubscriptionInfo() {
             الفئات المميزة، اصنعوا فئتكم الخاصة، وعيشوا التحدي على طريقتكم!
           </p>
 
-          <button className="bg-[#ffc439] hover:bg-[#e2af34] text-black font-bold py-3 px-10 cursor-auto rounded-lg shadow-md transition-all duration-300">
+          <button className="bg-[#ffc439] hover:bg-[#e2af34] text-black font-bold py-3 px-10 cursor-pointer rounded-lg shadow-md transition-all duration-300">
             أشترك
           </button>
         </div>

@@ -15,7 +15,7 @@ export default function Hero({showButtons = true, compact = false }) {
           <img
             src="/src/assets/images/logo.svg"
             alt="مين قدها؟"
-            className="w-40 h-40 mb-4"
+            className="w-[373px] h-40 mb-4"
           />
         </div>
 
@@ -27,7 +27,7 @@ export default function Hero({showButtons = true, compact = false }) {
         {/* Description and Buttons */}
         <section className="text-center max-w-2xl px-4 text-shadow-md ">
           <p className="text-lg text-white mb-6">
-             أسئلة سريعة , منافسات حامية و متعة سعودية لا تنسى 
+             أسئلة سريعة، منافسات حامية و متعة سعودية لا تُنسى 
           </p>
 
           {/* render buttons only if showButtons = true */}
@@ -39,7 +39,7 @@ export default function Hero({showButtons = true, compact = false }) {
             >
                العب
             </button>
-            <button className="bg-[#8E221F] hover:bg-[#6e1616] text-white font-semibold px-6 py-3 rounded-xl transition">
+            <button className="bg-[#8E221F] hover:bg-[#6e1616] text-white font-semibold px-6 py-3 cursor-pointer rounded-xl transition">
 
                تحميل التطبيق
             </button>
