@@ -5,11 +5,15 @@ import HelpTools from "../components/HelpTools";
 import CategoriesSection from "../components/CategoriesSection";
 import SubscriptionInfo from "../components/SubscriptionInfo";
 import ContactForm from "../components/ContactForm";
+import MainLayout from "../../../layouts/MainLayout";
 
-export default function Home() {
+export default function HomePage() {
   return (
+    <MainLayout>
+
     <div className="flex flex-col items-center w-full overflow-x-hidden">
-      <Hero className= "w-full"/>
+      <Hero showButtons={true} compact={false} />
+
       <AboutGame />
       <HowToPlay />
       <HelpTools />
@@ -19,6 +23,7 @@ export default function Home() {
       <ContactForm />
       </div>
     </div>
+    </MainLayout>
     
   );
 }

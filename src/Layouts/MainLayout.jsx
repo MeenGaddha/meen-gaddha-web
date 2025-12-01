@@ -6,7 +6,7 @@ import NoInternetScreen from "../layouts/NoInternetScreen";
 import { useEffect, useState } from "react";
 
 
-export default function MainLayout() {
+export default function MainLayout({children}) {
   const [isOnline, setIsOnline] = useState(navigator.onLine);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -29,10 +29,13 @@ export default function MainLayout() {
   if (!isOnline) return <NoInternetScreen />;
 
   return (
-    <div className="flex flex-col min-h-screen overflow-x-hidden">
+    <div className="flex flex-col">
       <Navbar />
-      <main className="flex-grow">
-        <Outlet />
+      
+      {/* <div className="h-[30px]" />  */}
+
+      <main className="flex-grow min-h-screen overflow-y-auto">
+        {children}
       </main>
       <Footer />
     </div>
